@@ -4,19 +4,15 @@
     <h3><i class="fa fa-windows fa-3x"></i> &nbsp; Windows</h3>
     <p><strong>GUI Client</strong></p>
     <ul>
-      <li>shadowsocks-win:
-        <ul>
-          <li>
-            Windows 7 or above: <a href="https://github.com/shadowsocks/shadowsocks-csharp/releases/download/2.5.6/Shadowsocks-win-2.5.6.zip">2.5.6.zip</a>
-          </li>
-        </ul>
+      <li>shadowsocks-win: <a href="https://github.com/shadowsocks/shadowsocks-windows/releases">GitHub</a>
       </li>
-      <li>Shadowsocks-Qt5: 
-        <ul>
-          <li>
-            <a href="https://github.com/librehat/shadowsocks-qt5/releases">Latest release</a>
-          </li>
-        </ul>
+      <li>Shadowsocks-Qt5: <a href="https://github.com/shadowsocks/shadowsocks-qt5/releases">GitHub</a>
+      </li>
+    </ul>
+    <p><strong>Command-line Client</strong></p>
+    <ul>
+      <li>
+        <code>pip install shadowsocks</code>
       </li>
     </ul>
   </div>
@@ -24,13 +20,18 @@
     <h3><i class="fa fa-apple fa-3x"></i> &nbsp; Mac OS X</h3>
     <p><strong>GUI Client</strong></p>
     <ul>
-      <li>ShadowsocksX: <a href="https://github.com/shadowsocks/shadowsocks-iOS/releases/download/2.6.3/ShadowsocksX-2.6.3.dmg">2.6.3.dmg</a></li>
-      <li>GoAgentX: <a href="https://goagentx.googlecode.com/files/GoAgentX-v2.2.9.dmg">v2.2.9.dmg</a></li>
+      <li>ShadowsocksX-NG: <a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases">GitHub</a></li>
     </ul>
     <p><strong>Command-line Client</strong></p>
     <ul>
       <li>
+        <code>pip install shadowsocks</code>
+      </li>
+      <li>
         <code>brew install shadowsocks-libev</code>
+      </li>
+      <li>
+        <code>cpan Net::Shadowsocks</code>
       </li>
     </ul>
   </div>
@@ -38,23 +39,14 @@
     <h3><i class="fa fa-linux fa-3x"></i> &nbsp; Linux</h3>
     <p><strong>GUI Client</strong></p>
     <ul>
-      <li>Shadowsocks-Qt5:
-        <ul>
-          <li>
-          <a href="https://github.com/librehat/shadowsocks-qt5/wiki/Installation">Latest release</a>
-          </li>
-        </ul>
+      <li>Shadowsocks-Qt5: <a href="https://github.com/shadowsocks/shadowsocks-qt5/wiki/Installation">GitHub</a>
       </li>
     </ul>
     <p><strong>Command-line Client</strong></p>
     <ul>
-      <li>shadowsocks-python:
-        <ul>
-          <li>
-            <code>pip install shadowsocks</code>
-          </li>
-        </ul>
-      </li>
+      <li> <code>pip install shadowsocks</code> </li>
+      <li> <code>apt-get install shadowsocks-libev</code> </li>
+      <li> <code>cpan Net::Shadowsocks</code> </li>
     </ul>
   </div>
 
@@ -67,13 +59,7 @@
         <ul>
           <li>
             <a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks">Google Play</a>
-          </li>
-        </ul>
-      </li>
-      <li>fqrouter2:
-        <ul>
-          <li>
-            <a href="https://play.google.com/store/apps/details?id=fq.router2">Google Play</a>
+            (<a href="https://play.google.com/apps/testing/com.github.shadowsocks">beta</a>)
           </li>
         </ul>
       </li>
@@ -82,10 +68,10 @@
   <div class="one-third column last">
     <h3><i class="fa fa-apple fa-3x"></i> &nbsp; iOS</h3>
     <ul>
-      <li>shadowsocks-iOS:
+      <li>Wingy:
         <ul>
           <li>
-            <a href="https://itunes.apple.com/tc/app/shadowsocks/id665729974?mt=8">App Store</a>
+            <a href="https://itunes.apple.com/us/app/wingy-http-s-socks5-proxy-utility/id1178584911">App Store</a>
           </li>
         </ul>
       </li>
@@ -122,3 +108,7 @@
 Ready to use? Just navigate to [Quick Guide](/en/config/quick-guide.html).
 
 Or plan to deploy your own server? See [Servers](/en/download/servers.html).
+
+## Have a Minute?
+
+Take one minute to complete [a survey about shadowsocks user base](https://docs.google.com/forms/d/16r2DCmEwwSGyBNZ_DsGDdIhcDJ74ZPCJTxrgFQvdNO0/viewform?c=0&w=1). It's totally anonymous and no login required.

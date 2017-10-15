@@ -9,7 +9,7 @@ Shadowsocks accepts [JSON] format configs like this:
     "local_port":1080,
     "password":"barfoo!",
     "timeout":600,
-    "method":"table"
+    "method":"chacha20-ietf-poly1305"
 }
 ```
 
@@ -20,16 +20,24 @@ Explanation of each field:
 * `local_port`: local port number.
 * `password`: a password used to encrypt transfer.
 * `timeout`: connections timeout in seconds.
-* `method`: encryption method, "bf-cfb", "aes-256-cfb", "des-cfb", "rc4", etc. Default is table, which is not secure. "aes-256-cfb" is recommended.
+* `method`: encryption method.
 
 [JSON]: http://www.json.org/
+
+## Encryption Method
+
+The strongest option is an [AEAD cipher](/en/spec/AEAD-ciphers.html). The recommended
+choice is "chacha20-ietf-poly1305" or "aes-256-gcm". Other
+[stream ciphers](/en/spec/Stream-Ciphers.html) are implemented but do not provide
+integrity and authenticity. Unless otherwise specified the encryption method
+defaults to "table", which is **not secure**.
 
 ## URI and QR code
 
 Shadowsocks for Android / iOS also accepts BASE64 encoded URI format configs:
 
 ```
-	ss://BASE64-ENCODED-STRING-WITHOUT-PADDING
+	ss://BASE64-ENCODED-STRING-WITHOUT-PADDING#TAG
 ```	
 
 Where the plain URI should be:
@@ -41,7 +49,13 @@ Where the plain URI should be:
 For example, we have a server at `192.168.100.1:8888` using `bf-cfb` encryption method and password `test`. Then, with the plain URI `ss://bf-cfb:test@192.168.100.1:8888`, we can generate the BASE64 encoded URI:
 
 ```
-	ss://YmYtY2ZiOnRlc3RAMTkyLjE2OC4xMDAuMTo4ODg4
+	ss://YmYtY2ZiOnRlc3RAMTkyLjE2OC4xMDAuMTo4ODg4Cg
+```
+
+To help organize and identify these URIs, you can append a tag after the BASE64 encoded string:
+
+```
+    ss://YmYtY2ZiOnRlc3RAMTkyLjE2OC4xMDAuMTo4ODg4Cg#example-server
 ```
 
 This URI can also be encoded to QR code. Then, just scan it with your Android / iOS devices:

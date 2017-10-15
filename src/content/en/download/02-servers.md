@@ -55,31 +55,21 @@ and low end boxes. It's a pure C implementation and has a very small footprint
 
 ### Debian/Ubuntu:
 
-First, add the GPG public key to your system:
+Shadowsocks-libev is available in the official repository for Debian
+9("Stretch"), unstable, Ubuntu 16.10 and later derivatives:
 
-```bash
-$ wget -O- http://shadowsocks.org/debian/1D27208A.gpg | sudo apt-key add -
+```
+sudo apt update
+sudo apt install shadowsocks-libev
 ```
 
-Install the binaries by adding each of the following repositories to your system.
+For Debian Jessie users, please install it from jessie-backports:
 
-On Debian Wheezy, Ubuntu 12.04 or any distribution with libssl > 1.0.0
-
-``` bash
-$ echo "deb http://shadowsocks.org/debian wheezy main" >> /etc/apt/sources.list
 ```
-
-On Debian Squeeze, Ubuntu 11.04, or any distribution with libssl > 0.9.8, but < 1.0.0
-
-```bash
-$ echo "deb http://shadowsocks.org/debian squeeze main" >> /etc/apt/sources.list
-```
-
-Then
-
-```bash
-$ apt-get update
-$ apt-get install shadowsocks-libev
+sudo sh -c 'printf "deb http://httpredir.debian.org/debian jessie-backports
+main" > /etc/apt/sources.list.d/jessie-backports.list'
+sudo apt-get update
+sudo apt-get -t jessie-backports install shadowsocks-libev
 ```
 
 ### GitHub
@@ -87,11 +77,14 @@ $ apt-get install shadowsocks-libev
 Build and install the project from source codes.
 
 ```bash
+$ sudo apt-get install --no-install-recommends build-essential autoconf libtool \
+        libssl-dev gawk debhelper dh-systemd init-system-helpers pkg-config asciidoc \
+        xmlto apg libpcre3-dev zlib1g-dev libev-dev libudns-dev libsodium-dev
 $ git clone https://github.com/shadowsocks/shadowsocks-libev.git
 $ cd shadowsocks-libev
-$ sudo apt-get install build-essential autoconf libtool libssl-dev
-$ ./configure && make
-$ make install
+$ git submodule update --init
+$ ./autogen.sh && ./configure && make
+$ sudo make install
 ```
 
 shadowsocks-libev is licensed under the [GNU General Public License v3.0](https://www.gnu.org/copyleft/gpl.html).
@@ -104,21 +97,59 @@ is maintained by [@librehat].
 
 ### Prebuilt binaries
 
-Download pre-built binaries from https://github.com/librehat/libQtShadowsocks/releases
+Download pre-built binaries from https://github.com/shadowsocks/libQtShadowsocks/releases
 
 ### GitHub
 
 ```bash
-$ git clone https://github.com/librehat/libQtShadowsocks.git
+$ git clone https://github.com/shadowsocks/libQtShadowsocks.git
 $ cd libQtShadowsocks
 $ qmake
 $ make -j4
 $ sudo make install
 ```
-
 libQtShadowsocks is licensed under the [GNU Lesser General Public License, version 3.0](https://www.gnu.org/licenses/lgpl.html)
+
+## Perl
+
+Net::Shadowsocks is an asynchronous, non-blocking Shadowsocks client and server Perl module maintained by [@zhou0]. 
+
+### Setting up
+
+You need a Perl interpreter to execute Perl program. Any Unix like system , including Linux and Mac OS X, has Perl pre-installed. Windows does not have Perl installed by default, you need to install Strawberry Perl.The source code is available on CPAN and github. Download from CPAN https://metacpan.org/release/Net-Shadowsocks or download from github https://github.com/zhou0/shadowsocks-perl
+
+### Installing 
+
+On Unix like systems,either
+
+ ```bash
+$ perl Build.PL
+$ ./Build
+$ ./Build test
+$ ./Build install
+```
+or
+```bash
+$ perl Makefile.PL
+$ make
+$ make test
+$ make install
+```
+You might need to change make to dmake or nmake depending on the compiler toolchain used on Windows. If You have cpan, you can also install using this command 
+```bash 
+$ cpan Net::Shadowsocks
+```  
+### Running
+
+There is a server.pl script under the eg directory. Put your config.json in the same directory as server.pl and
+run the server.pl script there.
+
+Net::Shadowsocks is licensed under the [Artistic License (2.0)] (http://www.perlfoundation.org/artistic_license_2_0). 
+
 
 [@clowwindy]: https://github.com/clowwindy
 [@cyfdecyf]: https://github.com/cyfdecyf
 [@madeye]: https://github.com/madeye
 [@librehat]: https://github.com/librehat
+[@zhou0]: https://github.com/zhou0
+

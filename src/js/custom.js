@@ -5,7 +5,7 @@
 (function($) {
   $(document).ready(function(){
 
-    $("head").append("<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,700|Iceland|Titillium+Web:400,600,600italic' rel='stylesheet' type='text/css'>");
+    $("head").append("<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,700|Iceland|Titillium+Web:400,600,600italic' rel='stylesheet' type='text/css'>");
 
     // Navigational Menu ddsmoothmenu
     ddsmoothmenu.init({
@@ -32,11 +32,11 @@
   $('[data-tooltip]').colorTip({color:'white'});
 
   // Initialize the QR codes
-  $('#qrcode-1').qrcode("ss://YmYtY2ZiOnRlc3RAMTkyLjE2OC4xMDAuMTo4ODg4");
+  $('#qrcode-1').qrcode("ss://YmYtY2ZiLWF1dGg6dGVzdEAxOTIuMTY4LjEwMC4xOjg4ODg");
 
   // Register QR generator
   $('#uri-plain').on('keyup change', function() {
-    var encoded = 'ss://' + Base64.encode($(this).val().replace('ss://','')).replace(/=/g,'');
+    var encoded = 'ss://' + Base64.encode($(this).val().replace('ss://','')).replace(/=/g,'') + "#example-server";
     $('#uri-encoded').val(encoded);
     $('#qrcode-gen').empty();
     $('#qrcode-gen').qrcode(encoded);
